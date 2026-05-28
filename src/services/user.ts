@@ -6,3 +6,14 @@ export const getUsers = async (): Promise<UserProps[]>  => {
 
     return data
 }
+
+
+export const deleteUsers = async (id: string) =>{
+    const res = await fetch(`/api/userRoute/${id}`, {
+        method: "DELETE"
+    })
+
+    const data = await res.json()
+
+    return data
+}

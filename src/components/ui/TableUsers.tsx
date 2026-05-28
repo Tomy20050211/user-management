@@ -1,6 +1,7 @@
-import { UserTableProps } from "../types/userTable";
+import { UserTableProps } from "../../types/userTable";
+import Button from "./Button";
 
-export default function Table({ users }: UserTableProps) {
+export default function Table({ users, onDelete}: UserTableProps) {
   return (
     <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md">
       <table className="min-w-full bg-white">
@@ -29,6 +30,11 @@ export default function Table({ users }: UserTableProps) {
               <td className="px-6 py-4 text-gray-700">
                 {user.email}
               </td>
+
+              <td>
+                  <Button  onClick={() => onDelete(user._id)} text="Delete" ></Button>
+              </td>
+              
             </tr>
           ))}
         </tbody>

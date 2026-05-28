@@ -1,6 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { User } from "@/src/models/User";
 import { connectDB } from "@/src/lib/mongoose";
+
 
 export async function GET () {
     try{
@@ -18,13 +19,16 @@ export async function GET () {
     }
 };
 
-export async function POST (){
+
+
+export async function POST (request: NextRequest){
     await connectDB()
+    
+    const body = await request.json()
 
-    const user = await User.create({
-        name: "Thomas Salazar Ruiz",
-        email: "tomasruiz@gmal.com"
-    })
+    const newUser = await User.create(body)
 
-    return NextResponse.json(user)
-}
+    return NextResponse.json(newUser)
+};
+
+
