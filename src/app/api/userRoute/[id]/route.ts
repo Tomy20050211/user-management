@@ -11,3 +11,4 @@ export async function DELETE(request: NextRequest, {params}: {params: Promise <{
     message: `Usuario ${id} eliminado`
   })
 }
+

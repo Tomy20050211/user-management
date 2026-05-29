@@ -54,7 +54,7 @@ export const createUser = async (data: CreateUserProps): Promise<UserProps> =>{
     const newUser = await parseJsonResponse(response)
 
     if (!response.ok) {
-        throw new Error(newUser?.message ?? "Error al crear el usuario")
+        throw new Error(newUser?.message ??     "Error al crear el usuario")
     }
 
     return newUser
